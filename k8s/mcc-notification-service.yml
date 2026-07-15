@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mcc-notification-service
+  namespace: stech
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mcc-notification-service
+  template:
+    metadata:
+      labels:
+        app: mcc-notification-service
+    spec:
+      containers:
+        - name: mcc-notification-service
+          image: victor146/mcc-notification:1.0
+          ports:
+            - containerPort: 8080 # O el puerto interno en el que corra tu app Java
+          imagePullPolicy: IfNotPresent
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mcc-notification-service
+  namespace: stech
+spec:
+  selector:
+    app: mcc-notification-service
+  ports:
+    - protocol: TCP
+      port: 8080        # Puerto que expondrá el servicio internamente
+      targetPort: 8080  # Puerto del contenedor
+  type: ClusterIP
