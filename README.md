@@ -6,7 +6,7 @@ Microservicio de notificaciones por correo electrónico para una arquitectura de
 
 Este microservicio es parte de una arquitectura completa de 6 microservicios para un sistema bancario:
 
-![Arquitectura de Microservicios](./architecture-diagram.png)
+![Arquitectura de Microservicios MCC](https://github.com/victordaniel123rt-lang/mcc-credit-disbursement-service/raw/master/docs/architecture.png)
 
 **Componentes del sistema:**
 - **mcc-gateway-service**: Gateway API que gestiona las solicitudes entrantes
